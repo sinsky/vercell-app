@@ -2,15 +2,15 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 
-const Home: NextPage = () => {
+const Settings: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>Settings</title>
       </Head>
-      <h2>Home</h2>
+      <h2>Settings</h2>
     </>
   );
 };
 
-export default Home;
+export default Settings;

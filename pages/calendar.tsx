@@ -2,15 +2,15 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 
-const Home: NextPage = () => {
+const Calendar: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>Calendar</title>
       </Head>
-      <h2>Home</h2>
+      <h2>Calendar</h2>
     </>
   );
 };
 
-export default Home;
+export default Calendar;

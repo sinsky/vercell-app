@@ -3,11 +3,11 @@ import Head from "next/head";
 import Link from "next/link";
 import { Button } from "@mantine/core";
 
-const Im: NextPage = () => {
+const Test: NextPage = () => {
   return (
     <>
       <Head>
-        <title>test page</title>
+        <title>Test</title>
       </Head>
       <div>
         <h1>Hello, Test page.</h1>
@@ -22,4 +22,4 @@ const Im: NextPage = () => {
   );
 };
 
-export default Im;
+export default Test;
