@@ -12,7 +12,10 @@ const Layout = ({ children }: ChildProps) => {
     <AppShell
       padding="md"
       navbar={<Navbar />}
-      header={<Header />}
+      // header={<Header />}
+      classNames={{
+        root: "text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-900",
+      }}
     >
       <div className="w-full h-full">{children}</div>
     </AppShell>
