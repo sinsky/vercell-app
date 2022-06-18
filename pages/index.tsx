@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { ImQrcode, ImPriceTags, ImDatabase, ImBubbles2, ImUsers } from "react-icons/im";
@@ -49,7 +48,7 @@ const Card = ({ title, value, unit, icon }: CardProps) => {
 
 export default Home;
 
-export const getServerSideProps = async (context: GetServerSideProps) => {
+export const getStaticProps = async () => {
   return {
     props: {},
   };
