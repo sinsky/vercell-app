@@ -2,13 +2,17 @@ import { Navbar } from "@mantine/core";
 import { useLocalStorage } from '@mantine/hooks';
 import type { NextPage } from "next";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ImHome, ImPencil, ImCalendar, ImCog, ImUser, ImBrightnessContrast, ImTab } from "react-icons/im";
 
 const NavItem: NextPage = () => {
   const [theme, setTheme] = useLocalStorage({ key: "theme", defaultValue: "light" });
+  const didLogRef = useRef(false);
   useEffect(() => {
-    if (theme === "dark") document.documentElement.classList.add('dark')
+    if (!didLogRef.current) {
+      didLogRef.current = true;
+      if (theme === "dark") document.documentElement.classList.add('dark')
+    }
   }, []);
   const toggleTheme = () => {
     setTheme((current) => {
