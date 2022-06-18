@@ -2,15 +2,24 @@ import { Navbar } from "@mantine/core";
 import { useLocalStorage } from '@mantine/hooks';
 import type { NextPage } from "next";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ImHome, ImPencil, ImCalendar, ImCog, ImUser, ImBrightnessContrast, ImTab } from "react-icons/im";
 
 const NavItem: NextPage = () => {
   const [theme, setTheme] = useLocalStorage({ key: "theme", defaultValue: "light" });
+  useEffect(() => {
+    if (theme === "dark") document.documentElement.classList.add('dark')
+  }, []);
   const toggleTheme = () => {
-    if (theme === "light") document.documentElement.classList.remove('dark');
-    else if (theme === "dark") document.documentElement.classList.add('dark');
-    setTheme((current) => current === "dark" ? "light" : "dark");
+    setTheme((current) => {
+      if (current === "dark") {
+        document.documentElement.classList.remove('dark');
+        return "light"
+      } else {
+        document.documentElement.classList.add('dark');
+        return "dark"
+      }
+    });
   };
   const [openNav, setOpenNav] = useState(true);
 
@@ -57,13 +66,13 @@ const NavItem: NextPage = () => {
             <span className={"capitalize text-xl text-left " + (!openNav && "hidden")}>Setting</span>
           </div>
         </Link>
-        <button className="px-2 py-4 h-[60px] flex items-center cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 dark:hover:text-500" onClick={toggleTheme}>
+        <button className="px-2 py-4 h-[60px] w-full flex items-center cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 dark:hover:text-500" onClick={toggleTheme}>
           <span className="ml-2 mr-4">
             <ImBrightnessContrast size={24} />
           </span>
           <span className={"capitalize text-xl text-left " + (!openNav && "hidden")}>Toggle {theme} theme</span>
         </button>
-        <button className="px-2 py-4 h-[60px] flex items-center cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 dark:hover:text-500" onClick={() => setOpenNav(!openNav)}>
+        <button className="px-2 py-4 h-[60px] w-full flex items-center cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 dark:hover:text-500" onClick={() => setOpenNav(!openNav)}>
           <span className="ml-2 mr-4">
             <ImTab size={24} />
           </span>
